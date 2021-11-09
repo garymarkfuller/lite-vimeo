@@ -46,7 +46,7 @@ export class LiteVimeoEmbed extends HTMLElement {
   }
 
   static get observedAttributes(): string[] {
-    return ['videoid'];
+    return ['videoid', 'videosecret'];
   }
 
   connectedCallback(): void {
@@ -63,6 +63,14 @@ export class LiteVimeoEmbed extends HTMLElement {
 
   set videoId(id: string) {
     this.setAttribute('videoid', id);
+  }
+
+  get videoSecret(): string {
+    return encodeURIComponent(this.getAttribute('videosecret') || '');
+  }
+
+  set videoSecret(secret: string) {
+    this.setAttribute('videosecret', secret);
   }
 
   get videoTitle(): string {
@@ -292,7 +300,7 @@ export class LiteVimeoEmbed extends HTMLElement {
       const apValue = ((this.autoLoad && this.autoPlay) || (!this.autoLoad)) ?
                         "autoplay=1" : "";
       const srcUrl = new URL(
-        `/video/${this.videoId}?${apValue}&#t=${this.videoStartAt}`,
+        `/video/${this.videoId}?h=${this.videoSecret}&${apValue}&#t=${this.videoStartAt}`,
         "https://player.vimeo.com/"
       );
 
