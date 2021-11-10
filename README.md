@@ -69,6 +69,15 @@ If you want the paste-and-go version, you can simply load it via CDN:
   videotitle="Mis hijos se burlan de mi español"
 ></lite-vimeo>
 ```
+## Add Restricted Video
+
+```html
+<lite-vimeo
+  videoid="364402896"
+  videosecret="ab454f9656"
+  videotitle="Restricted Video"
+></lite-vimeo>
+```
 
 ## Style It
 
@@ -112,11 +121,12 @@ Uses Intersection Observer if available to automatically load the Vimeo iframe w
 The web component allows certain attributes to be give a little additional
 flexibility.
 
-| Name         | Description                                                      | Default |
-| ------------ | ---------------------------------------------------------------- | ------- |
-| `videoid`    | The Vimeo videoid                                              | ``      |
-| `videotitle` | The title of the video                                           | `Video` |
-| `videoplay`  | The title of the play button (for translation)                   | `Play`  |
-| `autoload`   | Use Intersection Observer to load iframe when scrolled into view | `false` |
-| `autoplay`   | Video attempts to play automatically if auto-load set and browser allows it | `false` |
-| `start`      | Set the point at which the video should start, in seconds        | `0`     |
+| Name          | Description                                                      | Default |
+| ------------  | ---------------------------------------------------------------- | ------- |
+| `videoid`     | The Vimeo videoid                                              | ``      |
+| `videotitle`  | The title of the video                                           | `Video` |
+| `videoplay`   | The title of the play button (for translation)                   | `Play`  |
+| `videosecret` | The secret id for the video                                      | ``      |
+| `autoload`    | Use Intersection Observer to load iframe when scrolled into view | `false` |
+| `autoplay`    | Video attempts to play automatically if auto-load set and browser allows it | `false` |
+| `start`       | Set the point at which the video should start, in seconds        | `0`     |
