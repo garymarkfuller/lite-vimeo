@@ -241,7 +241,14 @@ export class LiteVimeoEmbed extends HTMLElement {
    */
   private setupComponent(): void {
     this.initImagePlaceholder();
-
+    this.domRefImg.fallback.setAttribute(
+      'aria-label',
+      `${this.videoPlay}: ${this.videoTitle}`,
+    );
+    this.domRefImg.fallback.setAttribute(
+      'alt',
+      `${this.videoPlay}: ${this.videoTitle}`,
+    );
     this.domRefPlayButton.setAttribute(
       'aria-label',
       `${this.videoPlay}: ${this.videoTitle}`,
@@ -350,14 +357,6 @@ export class LiteVimeoEmbed extends HTMLElement {
     this.domRefImg.webp.srcset = posterUrlWebp;
     this.domRefImg.jpeg.srcset = posterUrlJpeg;
     this.domRefImg.fallback.src = posterUrlJpeg;
-    this.domRefImg.fallback.setAttribute(
-      'aria-label',
-      `${this.videoPlay}: ${this.videoTitle}`,
-    );
-    this.domRefImg.fallback.setAttribute(
-      'alt',
-      `${this.videoPlay}: ${this.videoTitle}`,
-    );
   }
 
   /**
